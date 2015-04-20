@@ -26,7 +26,6 @@ return array(
                     'route'    => '/api/user',
                     'defaults' => array(
                         'controller' => 'Application\Controller\User',
-                        'action'     => 'index',
                     ),
                 ),
             ),
@@ -83,12 +82,11 @@ return array(
     ),
     'controllers' => array(
         'invokables' => array(
-            'Application\Controller\Index' => 'Application\Controller\IndexController',
             'Application\Controller\User' => 'Application\Controller\UserController'
         ),
     ),
     'view_manager' => array(
-        'strategies'=>array('ViewJsonStrategy'),
+        'strategies' => array('ViewJsonStrategy'),
         'display_not_found_reason' => true,
         'display_exceptions'       => true,
         'doctype'                  => 'HTML5',
