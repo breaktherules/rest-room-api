@@ -1,77 +1,29 @@
-ZendSkeletonApplication
-=======================
+Hotel Reservation
+========================
+This Application is created as a small demonstration of coding and design skills.  The requirements are deliberately kept simple for a casual reader.
 
-Introduction
-------------
-This is a simple, skeleton application using the ZF2 MVC layer and module
-systems. This application is meant to be used as a starting place for those
-looking to get their feet wet with ZF2.
+  
+Requirements :
+ Create a simple room reservation system for a small hotel. The hotel has N rooms all of same size, so there is no distinction for Single or  Double Bedroom. 
+ People call receptionist to :
+ 
+ 1) Reserve a room , given the guest name and reservation dates. If a guest wants to reserve two rooms. receptionist will have to make two separate reservations.
+ 2) Find if there is an availability during a period of From and to dates.
+ 3) Cancel a reservation.
+ 4) Given a Guest name, find if he has a reservation.
 
-Installation
-------------
 
-Using Composer (recommended)
-----------------------------
-The recommended way to get a working copy of this project is to clone the repository
-and use `composer` to install dependencies using the `create-project` command:
+ 
+Some Constraints
+================
+1) A reservation is only for one room, if a guest wants more than one rooms booked, he needs to make individual reservation for each room.
 
-    curl -s https://getcomposer.org/installer | php --
-    php composer.phar create-project -sdev --repository-url="https://packages.zendframework.com" zendframework/skeleton-application path/to/install
+2) Only receptionist uses the system , so we will not worry about security requirement, login, etc.
 
-Alternately, clone the repository and manually invoke `composer` using the shipped
-`composer.phar`:
+3) No Specific Database required.
 
-    cd my/project/dir
-    git clone git://github.com/zendframework/ZendSkeletonApplication.git
-    cd ZendSkeletonApplication
-    php composer.phar self-update
-    php composer.phar install
+4) Fully unit tested.
 
-(The `self-update` directive is to ensure you have an up-to-date `composer.phar`
-available.)
+5) Separation of concern.
 
-Another alternative for downloading the project is to grab it via `curl`, and
-then pass it to `tar`:
-
-    cd my/project/dir
-    curl -#L https://github.com/zendframework/ZendSkeletonApplication/tarball/master | tar xz --strip-components=1
-
-You would then invoke `composer` to install dependencies per the previous
-example.
-
-Using Git submodules
---------------------
-Alternatively, you can install using native git submodules:
-
-    git clone git://github.com/zendframework/ZendSkeletonApplication.git --recursive
-
-Web Server Setup
-----------------
-
-### PHP CLI Server
-
-The simplest way to get started if you are using PHP 5.4 or above is to start the internal PHP cli-server in the root directory:
-
-    php -S 0.0.0.0:8080 -t public/ public/index.php
-
-This will start the cli-server on port 8080, and bind it to all network
-interfaces.
-
-**Note: ** The built-in CLI server is *for development only*.
-
-### Apache Setup
-
-To setup apache, setup a virtual host to point to the public/ directory of the
-project and you should be ready to go! It should look something like below:
-
-    <VirtualHost *:80>
-        ServerName zf2-tutorial.localhost
-        DocumentRoot /path/to/zf2-tutorial/public
-        SetEnv APPLICATION_ENV "development"
-        <Directory /path/to/zf2-tutorial/public>
-            DirectoryIndex index.php
-            AllowOverride All
-            Order allow,deny
-            Allow from all
-        </Directory>
-    </VirtualHost>
+6) Use php web server and sql-lite so that the system can be run on even the minimalist of environment.
