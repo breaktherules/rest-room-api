@@ -21,9 +21,9 @@ return array(
                 ),
             ),
             'api' => array(
-                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'type' => 'Zend\Mvc\Router\Http\Segment',
                 'options' => array(
-                    'route'    => '/api/user',
+                    'route'    => '/api/user[/:id]',
                     'defaults' => array(
                         'controller' => 'Application\Controller\User',
                     ),
