@@ -13,7 +13,7 @@ use Zend\Mvc\Controller\AbstractRestfulController;
 use Zend\View\Model\JsonModel;
 
 
-class UserController extends AbstractRestfulController
+class GuestController extends AbstractRestfulController
 {
     public function get($id)
     {
@@ -52,8 +52,8 @@ class UserController extends AbstractRestfulController
             array ('id'=>1,'name'=>'Sample 1'),
             array ('id'=>2,'name'=>'Sample 2'),
             ) ;
-        // $userApiService = $this->getServiceLocator()->get('userAPIService');
-        // $result = $userApiService->getList();
+        // $guestService = $this->getServiceLocator()->get('guestService');
+        // $result = $guestService->getList();
         $response = $this->getResponse();
         $response->setStatusCode(200);
         return new JsonModel($result);
