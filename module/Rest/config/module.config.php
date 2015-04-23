@@ -15,7 +15,7 @@ return array(
                 'options' => array(
                     'route'    => '/',
                     'defaults' => array(
-                        'controller' => 'Application\Controller\Index',
+                        'controller' => 'Rest\Controller\Index',
                         'action'     => 'index',
                     ),
                 ),
@@ -23,9 +23,9 @@ return array(
             'api' => array(
                 'type' => 'Zend\Mvc\Router\Http\Segment',
                 'options' => array(
-                    'route'    => '/api/user[/:id]',
+                    'route'    => '/api/guest[/:id]',
                     'defaults' => array(
-                        'controller' => 'Application\Controller\User',
+                        'controller' => 'Rest\Controller\Guest',
                     ),
                 ),
             ),
@@ -33,12 +33,12 @@ return array(
             // new controllers and actions without needing to create a new
             // module. Simply drop new controllers in, and you can access them
             // using the path /application/:controller/:action
-            'application' => array(
+            'rest' => array(
                 'type'    => 'Literal',
                 'options' => array(
-                    'route'    => '/application',
+                    'route'    => '/rest',
                     'defaults' => array(
-                        '__NAMESPACE__' => 'Application\Controller',
+                        '__NAMESPACE__' => 'Rest\Controller',
                         'controller'    => 'Index',
                         'action'        => 'index',
                     ),
@@ -82,7 +82,7 @@ return array(
     ),
     'controllers' => array(
         'invokables' => array(
-            'Application\Controller\User' => 'Application\Controller\UserController'
+            'Rest\Controller\Guest' => 'Rest\Controller\GuestController'
         ),
     ),
     'view_manager' => array(

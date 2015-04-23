@@ -6,7 +6,7 @@
  * Time: 11:17 AM
  */
 
-namespace Application\Controller;
+namespace Rest\Controller;
 
 use Zend\EventManager\EventManagerInterface;
 use Zend\Mvc\Controller\AbstractRestfulController;
