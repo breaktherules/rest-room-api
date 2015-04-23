@@ -1,0 +1,6 @@
+suites:
+  default:
+    namespace: Reservation
+    src_path: library
+    spec_path: test
+    spec_prefix: spec
