@@ -1,27 +1,41 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Najam.Haque
- * Date: 4/23/2015
- * Time: 7:58 PM
- */
 
 namespace Reservation\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Entity as Entity;
 
-class Guest {
-
-    protected $id ;
-    protected $name ;
-
-    public function __construct($name, $id=null)
-    {
-        $this->id = $id;
-        $this->name = $name;
-    }
+/**
+ * Guest
+ *
+ * @Entity(repositoryClass="Repository\GuesRepository")
+ * @ORM\Table(name="guest")
+ * @ORM\Entity
+ */
+class Guest
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
 
     /**
-     * @return mixed
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=30, nullable=false)
+     */
+    private $name;
+
+
+
+    /**
+     * Get id
+     *
+     * @return integer
      */
     public function getId()
     {
@@ -29,27 +43,26 @@ class Guest {
     }
 
     /**
-     * @param mixed $id
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Guest
      */
-    public function setId($id)
+    public function setName($name)
     {
-        $this->id = $id;
+        $this->name = $name;
+
+        return $this;
     }
 
     /**
-     * @return mixed
+     * Get name
+     *
+     * @return string
      */
     public function getName()
     {
         return $this->name;
     }
-
-    /**
-     * @param mixed $name
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-    }
-
 }
