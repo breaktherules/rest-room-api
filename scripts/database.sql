@@ -14,3 +14,8 @@ CREATE TABLE guest (
      name VARCHAR(30) NOT NULL,
      PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
+
+INSERT INTO guest(name) VALUES('John Doe') ;
+INSERT INTO guest(name) VALUES('Jane Doe') ;
+INSERT INTO guest(name) VALUES('Smith Dakar') ;
+INSERT INTO guest(name) VALUES('Jacobs Laden') ;

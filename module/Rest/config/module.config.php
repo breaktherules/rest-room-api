@@ -61,11 +61,34 @@ return array(
             ),
         ),
     ),
+    'doctrine' => array(
+        'driver' => array(
+            'orm_default' => array(
+                'drivers' => array(
+                    'Reservation\Entity' => 'reservation_entities',
+                    ),
+            ),
+            /**
+             * This is the only kind entity we will be dealing in this project,
+             * Our Entity namespace differ from module namespace.
+             */
+            'reservation_entities' => array(
+                'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
+                'cache' => 'array',
+                'paths' => array( 'library/Reservation/Entity')
+            )
+        ),
+    ),
     'service_manager' => array(
         'abstract_factories' => array(
             'Zend\Cache\Service\StorageCacheAbstractServiceFactory',
             'Zend\Log\LoggerAbstractServiceFactory',
         ),
+        'factories'=>array('Reservation\Service\GuestService'=>function($serviceManager){
+            $guestService = new \Reservation\Service\GuestService();
+            $guestService->setServiceLocator($serviceManager);
+            return $guestService;
+        }),
         'aliases' => array(
             'translator' => 'MvcTranslator',
         ),

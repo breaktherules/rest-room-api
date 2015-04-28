@@ -3,12 +3,15 @@
 namespace Reservation\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\ORM\Entity as Entity;
-
+use Doctrine\ORM\Mapping\Entity;
+use Doctrine\ORM\Mapping\Table;
+use Doctrine\ORM\Mapping\Id;
+use Doctrine\ORM\Mapping\Column;
+use Doctrine\ORM\Mapping\GeneratedValue;
 /**
- * Guest
+ * Reservation\Entity\Guest
  *
- * @Entity(repositoryClass="Repository\GuesRepository")
+ * @Entity(repositoryClass="Reservation\Entity\Repository\GuestRepository")
  * @ORM\Table(name="guest")
  * @ORM\Entity
  */
@@ -16,10 +19,9 @@ class Guest
 {
     /**
      * @var integer
-     *
-     * @ORM\Column(name="id", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @Id @Column(type="integer", nullable=false)
+     * @Column(name="id", type="integer")
+     * @GeneratedValue(strategy="AUTO")
      */
     private $id;
 
